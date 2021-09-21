@@ -1,0 +1,12 @@
+body {
+    background-image: url("stars.png");
+    color: white;
+}
+
+a {
+	color: yellow;
+}
+
+a:hover{
+	color: green;
+}
