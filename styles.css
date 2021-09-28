@@ -1,7 +1,9 @@
 body {
     background-image: url("stars.png");
+    background-attachment: fixed;
     color: white;
     font-family: sans-serif;
+    padding: 100px;
 }
 
 a {
