@@ -1,4 +1,4 @@
-if [$1 = ""];
+if [ $1 = "" ];
 then
 echo "-- you need to type in a message please"
 exit 1
