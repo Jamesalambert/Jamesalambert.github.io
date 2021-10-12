@@ -1,7 +1,7 @@
-if [ $1 = "" ];
-then
-echo "-- you need to type in a message please"
-exit 1
+if [ "$1" = "" ] #need spaces next to [] and ""
+	then
+	echo "-- you need to type in a message please"
+	exit 1
 fi
 
 git add --all
