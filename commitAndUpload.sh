@@ -1,12 +1,12 @@
-if [$1 -eq ""];
+if [$1 = ""];
 then
-	echo "Script -- you need to type in a message please"
-	exit
+echo "-- you need to type in a message please"
+exit 1
 fi
 
 git add --all
-echo "Script -- commiting changes"
+echo "-- commiting changes"
 git commit -m "$1"
-echo "Script -- pushing changes"
+echo "-- pushing changes"
 git push -u origin master
-echo "Script -- finished"
+echo "-- finished"
