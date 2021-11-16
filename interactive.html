@@ -16,19 +16,15 @@
 	<script>
 		function letterClick(input){
 
-		let x = document.getElementById(input);
+			let x = document.getElementById(input);			
 
-		console.log("click");
-
-		if (x.innerHTML == "Clicked!") {
-			x.innerHTML = 'a';
-			console.log("true");
-		} else {
-			x.innerHTML = "Clicked!";
-			console.log(x.innerHTML);
-			console.log("false");
-		}	
-	}
+			if (x.innerHTML == clickMessage) {
+				x.innerHTML = input;
+			} else {
+				x.innerHTML = clickMessage;
+				console.log(x.innerHTML);
+			}	
+		}
 	</script>
 	
 </body>
