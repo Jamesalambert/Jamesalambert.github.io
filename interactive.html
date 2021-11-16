@@ -6,23 +6,21 @@
 
 <body>
 	
-	<p id="a" onclick="func()">a</p>
-	<p id="b">b</p>
-	<p id="c">c</p>
-	<p id="d">d</p>
-	<p id="e">e</p>
-	<p id="f">f</p>
+	<p id="a" onclick="func('a')">a</p>
+	<p id="b" onclick="func('b')">b</p>
+	<p id="c" onclick="func('c')">c</p>
+	<p id="d" onclick="func('d')">d</p>
+	<p id="e" onclick="func('e')">e</p>
+	<p id="f" onclick="func('f')">f</p>
 	
 	
 	<script type="text/javascript">
 	
-	
-		function func(){
-			 let x = document.getElementById("a");
+		function func(input){
+			 let x = document.getElementById(input);
 			 x.innerHTML = "Clicked!"
 			 console.log(x.innerHTML)
 		}
-		
 		
 	</script>
 	
