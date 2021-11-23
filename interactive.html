@@ -5,23 +5,31 @@
 </head>
 
 <body>
-	
-	<p id="a" onclick="letterClick('a')">a</p>
-	<p id="b" onclick="letterClick('b')">b</p>
-	<p id="c" onclick="letterClick('c')">c</p>
-	<p id="d" onclick="letterClick('d')">d</p>
-	<p id="e" onclick="letterClick('e')">e</p>
-	<p id="f" onclick="letterClick('f')">f</p>
+	<p>
+	<span id="a" class="button off" onclick="letterClick('a')">power on</span>
+	<span id="b" class="button off" onclick="letterClick('b')">Igniter system</span>
+	<span id="c" class="button off" onclick="letterClick('c')">Oxygen</span>
+	<span id="d" class="button off" onclick="letterClick('d')">Nitrous Oxide</span>
+	<span id="e" class="button off" onclick="letterClick('e')">e</span>
+	<span id="f" class="button off" onclick="letterClick('f')">f</span>
+	</p>
+	<p>
+	<div id="g" class="light lit" onclick="letterClick('g')"> </div>
+	</p>
 	
 	<script>
 		function letterClick(input){
-
 			let x = document.getElementById(input);			
+			
+			let clickMessage = "Clicked"
 
-			if (x.innerHTML == clickMessage) {
-				x.innerHTML = input;
-			} else {
+			if (x.className == "button off") {
 				x.innerHTML = clickMessage;
+				x.className = "button on";
+				
+			} else if (x.className == "button on") {
+				x.innerHTML = input;
+				x.className = "button off";
 				console.log(x.innerHTML);
 			}	
 		}
