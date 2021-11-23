@@ -10,12 +10,15 @@
 	<span id="b" class="button off" onclick="letterClick('b')">Igniter system</span>
 	<span id="c" class="button off" onclick="letterClick('c')">Oxygen</span>
 	<span id="d" class="button off" onclick="letterClick('d')">Nitrous Oxide</span>
-	<span id="e" class="button off" onclick="letterClick('e')">e</span>
-	<span id="f" class="button off" onclick="letterClick('f')">f</span>
+	<span id="e" class="button off" onclick="letterClick('e')">e?</span>
+	<span id="f" class="button off" onclick="letterClick('f')">f?</span>
 	</p>
-	<p>
+	
+	<!-- 
+<p>
 	<div id="g" class="light lit" onclick="letterClick('g')"> </div>
 	</p>
+ -->
 	
 	<script>
 		function letterClick(input){
@@ -24,13 +27,10 @@
 			let clickMessage = "Clicked"
 
 			if (x.className == "button off") {
-				x.innerHTML = clickMessage;
 				x.className = "button on";
 				
 			} else if (x.className == "button on") {
-				x.innerHTML = input;
 				x.className = "button off";
-				console.log(x.innerHTML);
 			}	
 		}
 	</script>
