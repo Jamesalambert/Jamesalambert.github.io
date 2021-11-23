@@ -6,32 +6,43 @@
 
 <body>
 	<p>
-	<span id="a" class="button off" onclick="letterClick('a')">power on</span>
-	<span id="b" class="button off" onclick="letterClick('b')">Igniter system</span>
-	<span id="c" class="button off" onclick="letterClick('c')">Oxygen</span>
-	<span id="d" class="button off" onclick="letterClick('d')">Nitrous Oxide</span>
-	<span id="e" class="button off" onclick="letterClick('e')">e?</span>
-	<span id="f" class="button off" onclick="letterClick('f')">f?</span>
+	<span id="a" class="button off" onclick="buttonClick('a')">power on</span>
+	<span id="b" class="button off" onclick="buttonClick('b')">Igniter system</span>
+	<span id="c" class="button off" onclick="buttonClick('c')">Oxygen</span>
+	<span id="d" class="button off" onclick="buttonClick('d')">Nitrous Oxide</span>
+	<span id="e" class="button off" onclick="buttonClick('e')">e?</span>
+	<span id="f" class="button off" onclick="buttonClick('f')">f?</span>
 	</p>
 	
 	<!-- 
 <p>
-	<div id="g" class="light lit" onclick="letterClick('g')"> </div>
+	<div id="g" class="light lit" onclick="buttonClick('g')"> </div>
 	</p>
  -->
 	
 	<script>
-		function letterClick(input){
-			let x = document.getElementById(input);			
+		function buttonClick(input){
+		
+// 			check to see if power is on!!
+			let powerButton = document.getElementById('a')
+			if (powerButton.className == 'button on' || input == 'a'){
 			
-			let clickMessage = "Clicked"
-
-			if (x.className == "button off") {
-				x.className = "button on";
+// 				do stuff!!!!
+				//////////////original code
+				let x = document.getElementById(input);			
+			
+				if (x.className == "button off") {
+					x.className = "button on";
 				
-			} else if (x.className == "button on") {
-				x.className = "button off";
-			}	
+				} else if (x.className == "button on") {
+					x.className = "button off";  
+				}
+// 				//////////////////////
+				
+			} else {
+				console.log('power is off')
+				return 0;
+			}
 		}
 	</script>
 	
