@@ -1,46 +1,77 @@
 <html>
 
 <head>
+	<title>Rocket Control Panel</title>
 	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-	<p>
-	<span id="a" class="button off" onclick="buttonClick('a')">power on</span>
-	<span id="b" class="button off" onclick="buttonClick('b')">Igniter system</span>
-	<span id="c" class="button off" onclick="buttonClick('c')">Oxygen</span>
-	<span id="d" class="button off" onclick="buttonClick('d')">Nitrous Oxide</span>
-	<span id="e" class="button off" onclick="buttonClick('e')">e?</span>
-	<span id="f" class="button off" onclick="buttonClick('f')">f?</span>
-	</p>
+	
+	<button id="a" class="button off" onclick="tappedPowerButton()">power on</button>
+	<button id="b" class="button off" onclick="buttonClick('b')">Igniter system</button>
+	<button id="c" class="button off" onclick="buttonClick('c')">Oxygen</button>
+	<button id="d" class="button off" onclick="buttonClick('d')">Nitrous Oxide</button>
+	<button id="e" class="button off" onclick="buttonClick('e')">e?</button>
+	<button id="f" class="button off" onclick="buttonClick('f')">f?</button>
 	
 	<!-- 
 <p>
 	<div id="g" class="light lit" onclick="buttonClick('g')"> </div>
 	</p>
  -->
+
+
+<!-- embed external script -->
+<!-- 	<script type="text/javascript" src="controlBox.js"></script> -->
 	
 	<script>
+		
+		var powerOn = false;
+		
+		
+		function turnAllButtonsOff(){
+			let buttons = document.getElementsByClassName('button');
+			
+			for(let i = 0; i < buttons.length; i++){
+				buttons[i].className = "button off";
+			}
+		}
+		
+		function turnPowerButtonOn(){
+			
+			let powerButton = document.getElementById('a');
+			powerButton.className = "button on";
+		}
+		
+		function tappedPowerButton(){
+			powerOn = !powerOn;
+			console.log("turning power on");
+// 			if power is now off turn off all other buttons.
+			if (powerOn){
+				
+				turnPowerButtonOn();
+			} else {
+				turnAllButtonsOff();
+			}
+		}
+	
 		function buttonClick(input){
 		
-// 			check to see if power is on!!
-			let powerButton = document.getElementById('a')
-			if (powerButton.className == 'button on' || input == 'a'){
+// 			let powerButton = document.getElementById('a');
 			
-// 				do stuff!!!!
-				//////////////original code
+			if (powerOn){
+				
 				let x = document.getElementById(input);			
-			
+
 				if (x.className == "button off") {
 					x.className = "button on";
 				
 				} else if (x.className == "button on") {
 					x.className = "button off";  
 				}
-// 				//////////////////////
 				
 			} else {
-				console.log('power is off')
+				console.log('power is off');
 				return 0;
 			}
 		}
