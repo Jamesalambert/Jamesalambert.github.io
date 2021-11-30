@@ -8,15 +8,15 @@
 <body>
 	
 	<button id="a" class="button off" onclick="tappedPowerButton()">power on</button>
-	<button id="b" class="button off" onclick="buttonClick('b')">Igniter system</button>
-	<button id="c" class="button off" onclick="buttonClick('c')">Oxygen</button>
-	<button id="d" class="button off" onclick="buttonClick('d')">Nitrous Oxide</button>
-	<button id="e" class="button off" onclick="buttonClick('e')">e?</button>
-	<button id="f" class="button off" onclick="buttonClick('f')">f?</button>
+	<button id="b" class="button off" onclick="tappedButton('b')">Igniter system</button>
+	<button id="c" class="button off" onclick="tappedButton('c')">Oxygen</button>
+	<button id="d" class="button off" onclick="tappedButton('d')">Nitrous Oxide</button>
+	<button id="e" class="button off" onclick="tappedButton('e')">e?</button>
+	<button id="f" class="button off" onclick="tappedButton('f')">f?</button>
 	
 	<!-- 
 <p>
-	<div id="g" class="light lit" onclick="buttonClick('g')"> </div>
+	<div id="g" class="light lit" onclick="tappedButton('g')"> </div>
 	</p>
  -->
 
@@ -26,9 +26,14 @@
 	
 	<script>
 		
+		//model
 		var powerOn = false;
+		///////////////////
 		
 		
+		
+		
+		//Update page functions
 		function turnAllButtonsOff(){
 			let buttons = document.getElementsByClassName('button');
 			
@@ -38,29 +43,29 @@
 		}
 		
 		function turnPowerButtonOn(){
-			
 			let powerButton = document.getElementById('a');
 			powerButton.className = "button on";
 		}
+		///////////////////
 		
+		
+		
+		
+		//actions
 		function tappedPowerButton(){
 			powerOn = !powerOn;
-			console.log("turning power on");
-// 			if power is now off turn off all other buttons.
+
 			if (powerOn){
-				
 				turnPowerButtonOn();
 			} else {
 				turnAllButtonsOff();
 			}
 		}
 	
-		function buttonClick(input){
-		
-// 			let powerButton = document.getElementById('a');
-			
+		function tappedButton(input){
+					
 			if (powerOn){
-				
+			
 				let x = document.getElementById(input);			
 
 				if (x.className == "button off") {
@@ -75,6 +80,8 @@
 				return 0;
 			}
 		}
+		///////////////////
+
 	</script>
 	
 </body>
