@@ -27,10 +27,8 @@
 	<script>
 		
 		//model
-		var powerOn = false;
+		var powerIsOn = false;
 		///////////////////
-		
-		
 		
 		
 		//Update page functions
@@ -46,16 +44,27 @@
 			let powerButton = document.getElementById('a');
 			powerButton.className = "button on";
 		}
+		
+		
+		function toggleButtonWithID(id){
+			let x = document.getElementById(id);			
+
+			if (x.className == "button off") {
+				x.className = "button on";
+			} else if (x.className == "button on") {
+				x.className = "button off";  
+			}
+		}
+	
 		///////////////////
-		
-		
 		
 		
 		//actions
 		function tappedPowerButton(){
-			powerOn = !powerOn;
-
-			if (powerOn){
+		
+			powerIsOn = !powerIsOn;
+			
+			if (powerIsOn){
 				turnPowerButtonOn();
 			} else {
 				turnAllButtonsOff();
@@ -63,18 +72,8 @@
 		}
 	
 		function tappedButton(input){
-					
-			if (powerOn){
-			
-				let x = document.getElementById(input);			
-
-				if (x.className == "button off") {
-					x.className = "button on";
-				
-				} else if (x.className == "button on") {
-					x.className = "button off";  
-				}
-				
+			if (powerIsOn){
+				toggleButtonWithID(input)
 			} else {
 				console.log('power is off');
 				return 0;
