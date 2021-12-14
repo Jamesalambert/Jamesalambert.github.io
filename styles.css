@@ -36,10 +36,7 @@ a:hover{
 	color: gray;
 }
 
-@keyframes example {
-  from {background-color: red;}
-  to {background-color: yellow;}
-}
+
 
 #box{
 	width: 100px;
@@ -47,32 +44,14 @@ a:hover{
  	background-color: red;
 }
 
+
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
 .animatedThing {
 	animation-name: example;
 	animation-duration: 4s;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-.light{
-	width:50px;
-    height:50px;
-    border-radius: 50%;
-}
-
-.lit{
-	background-color: green;
-}
-
-.unlit{
-	background-color: grey;
-}
