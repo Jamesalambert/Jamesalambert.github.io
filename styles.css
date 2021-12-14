@@ -32,11 +32,25 @@ a:hover{
 	color: red;
 }
 
+.inactive{
+	color: gray;
+}
 
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
 
+#box{
+	width: 100px;
+  	height: 100px;
+ 	background-color: red;
+}
 
-
-
+.animatedThing {
+	animation-name: example;
+	animation-duration: 4s;
+}
 
 
 

@@ -1,0 +1,109 @@
+<html>
+
+<head>
+	<title>Rocket Control Panel</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	
+	<button id="a" class="button off" onclick="tappedPowerButton()">power</button>
+	<button id="b" class="control button off inactive" onclick="tappedControlButton('b')">Igniter system</button>
+	<button id="c" class="control button off inactive" onclick="tappedControlButton('c')">Oxygen</button>
+	<button id="d" class="control button off inactive" onclick="tappedControlButton('d')">Nitrous Oxide</button>
+	<button id="e" class="control button off inactive" onclick="tappedControlButton('e')">e?</button>
+	<button id="f" class="control button off inactive" onclick="tappedControlButton('f')">f?</button>
+	
+	
+	<div id="box" onclick="tappedBox()"></div>
+	<!-- 
+<p>
+	<div id="g" class="light lit" onclick="tappedButton('g')"> </div>
+	</p>
+ -->
+
+
+<!-- embed external script -->
+<!-- 	<script type="text/javascript" src="controlBox.js"></script> -->
+	
+	<script>
+		
+		//model
+		var powerIsOn = false;
+		///////////////////
+		
+		
+		//Update page functions
+		function turnAllControlButtonsInactive(){
+			let buttons = document.getElementsByClassName('control button');
+			
+			for(let i = 0; i < buttons.length; i++){
+				buttons[i].className = "control button off inactive";
+			}
+		}
+		
+		function turnAllControlButtonsActive(){
+			let buttons = document.getElementsByClassName('control button');
+			
+			for(let i = 0; i < buttons.length; i++){
+				buttons[i].className = "control button off";
+			}
+		}
+		
+		function turnPowerButtonOn(){
+			let powerButton = document.getElementById('a');
+			powerButton.className = "button on";
+		}
+		
+		function turnPowerButtonOff(){
+			let powerButton = document.getElementById('a');
+			powerButton.className = "button off";
+		}
+		
+		function toggleControlButtonWithID(id){
+			let x = document.getElementById(id);			
+
+			if (x.className == "control button off") {
+				x.className = "control button on";
+			} else if (x.className == "control button on") {
+				x.className = "control button off";  
+			}
+		}
+		///////////////////
+		
+
+		//actions
+		function tappedPowerButton(){
+		
+			powerIsOn = !powerIsOn;
+			
+			if (powerIsOn){
+				turnAllControlButtonsActive();
+				turnPowerButtonOn();
+			} else {
+				turnAllControlButtonsInactive();
+				turnPowerButtonOff();
+			}
+		}
+	
+		function tappedControlButton(input){
+			if (powerIsOn){
+				toggleControlButtonWithID(input)
+			} else {
+				console.log('power is off');
+				return 0;
+			}
+		}
+		
+		function tappedBox(){
+			let box = document.getElementById('box');
+			box.className = "animatedThing";
+		}
+		
+		///////////////////
+
+	</script>
+	
+</body>
+
+</html>
