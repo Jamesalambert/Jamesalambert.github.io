@@ -13,3 +13,11 @@
     background: lightgray;   
 /*     margin: 15px; */
 }
+
+.container > .cross {
+	background-color : green;
+}
+
+.container > .nought {
+	background-color : black;
+}
