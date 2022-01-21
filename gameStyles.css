@@ -5,13 +5,13 @@
 	height: 350px;
 }
 
-
 .container > button{
 	width: 100px;
     height: 100px;
 /*     float: left; */
     background: lightgray;   
 /*     margin: 15px; */
+	vertical-align: bottom;
 }
 
 .container > .cross {
