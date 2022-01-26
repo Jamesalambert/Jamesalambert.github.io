@@ -1,5 +1,9 @@
 /* Game CSS */
 
+body {
+	background: black;
+}
+
 .container {
 	width: 350px;
 	height: 350px;
@@ -19,5 +23,11 @@
 }
 
 .container > .nought {
-	background-color : black;
+	background-color : yellow;
+}
+
+#reset {
+	background: red;
+	color: white;
+	font-size: 30px;
 }
