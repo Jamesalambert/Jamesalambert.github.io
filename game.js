@@ -1,7 +1,7 @@
-var isCrossTurn = true;
-
 var WINNING_LINES = ['abc','def','ghi','adg','beh','cfi','aei','ceg'];
 
+// game state
+var isCrossTurn = true;
 var noughtsSquares = ""; //-> does this contain either "abc" or "def" ???
 var crossesSquares = "";  
 var winner = "";
@@ -9,7 +9,6 @@ var winner = "";
 function tappedSquare(buttonID){
 	var button = document.getElementById(buttonID);
 
-// THIS SHOULD CHECK THE MODEL NOT THE UI
 // 	check to see if the button has been clicked before.
 	if(button.className == "square cross" || button.className == "square nought"){
 		console.log("tried to click on an occupied square!");
@@ -25,30 +24,28 @@ function tappedSquare(buttonID){
     	button.innerHTML = "o";
 		noughtsSquares += buttonID;
 	}
-	// console.log(noughtsSquares);
-// 	console.log(crossesSquares);
 	
 // 	check to see if there is a winner
 	checkForAWinner();
-// if there is what should we do?????
 	if (winner != ""){
 		displayWinner();
 	}
-
+	//switch to the next player
 	isCrossTurn = !isCrossTurn;
 }
 
 
 function displayWinner(){
 	var banner = document.getElementById("winner");
-	banner.innerHTML = winner;
+// 	TODO: change the colour depending on the winner
+	banner.style.backgroundColor = 'red';
+	banner.innerHTML = `${winner} has won!`;
 }
 
 
 // control functions
 function checkForAWinner(){
 // check to see if noughts or crosses has won
-//  if so then ...???
 	if (hasWon(noughtsSquares)){
 		winner = "noughts";
 	} else if (hasWon(crossesSquares)) {
@@ -84,21 +81,20 @@ function containsEveryLetter(testString, smallString){
 }
 
 
-
-
-
 function reset(){
-    //reset the buttons
-    var buttons = document.getElementsByClassName("square");
-    for(var i=0; i < buttons.length; i++){
-        buttons[i].innerHTML = "";
-        buttons[i].className = "square";
+    //reset the view
+    const buttons = document.getElementsByClassName("square");
+    for(const button of buttons){
+        button.innerHTML = "";
+        button.className = "square";
     }
-    //reset turns
-    isCrossTurn = true;
     
-    //reset memory
-    noughtsSquares = "";
-	crossesSquares = "";
-	winner = "";
+	const winningMessage = document.getElementById("winner");
+	winningMessage.innerHTML = "";
+    
+    //reset state
+    isCrossTurn 	= true;
+    noughtsSquares 	= "";
+	crossesSquares 	= "";
+	winner 			= "";
 }

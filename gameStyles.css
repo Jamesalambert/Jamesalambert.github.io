@@ -26,6 +26,12 @@ body {
 	background-color : yellow;
 }
 
+#winner {
+	color: black;
+	background-color: white;
+	font-size: 30px;
+}
+
 #reset {
 	background: red;
 	color: white;
